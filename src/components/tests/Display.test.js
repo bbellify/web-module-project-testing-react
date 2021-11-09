@@ -75,7 +75,7 @@ test('correct number of season options available in dropdown', async () => {
     
 })
 
-test('function fires when button is pressed', ()=> {
+test('function fires when button is pressed', async ()=> {
     const fakeDisplayFunc = jest.fn();
 
     fetchShow.mockResolvedValueOnce({
@@ -100,7 +100,7 @@ test('function fires when button is pressed', ()=> {
     const button = screen.getByRole('button');
     userEvent.click(button);
 
-    expect(fakeDisplayFunc).toHaveBeenCalled()
+    await waitFor(()=> expect(fakeDisplayFunc).toHaveBeenCalled())
 
 
 })
